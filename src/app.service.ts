@@ -22,6 +22,6 @@ export class AppService {
         age: 18
       },
       msg: '请求成功'
-    }
+    };
   }
 }
