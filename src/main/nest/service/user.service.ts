@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 
-import { User } from '../dataobject/userDO';
+import UserDO from '../dataobject/userDO';
 
 @Injectable()
 export class UserService {
-  getUsers(): Res<User> {
+  getUsers(): CommonResult<UserDO> {
     return {
       code: 200,
       data: {
         id: 1,
-        name: '张三'
+        userName: '张三'
       },
       msg: '操作成功'
     };

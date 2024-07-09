@@ -1,4 +1,4 @@
-interface Res<T> {
+interface CommonResult<T> {
   code: number;
   data: T;
   msg: string;

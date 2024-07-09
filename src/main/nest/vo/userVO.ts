@@ -1,4 +1,4 @@
-export default class UserDO {
+export default class UserVO {
   id: number;
 
   userName: string;
