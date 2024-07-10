@@ -37,10 +37,15 @@ export default class CommonResult<T = any> {
    * @param IerrorCode 默认500
    * @returns CommonResult
    */
-  public static failed(IerrorCode?: IErrorCode): CommonResult {
+  public static failed<T = any>(
+    IerrorCode?: IErrorCode,
+    msg?: string,
+    data?: T
+  ): CommonResult<T> {
     return new CommonResult(
       IerrorCode?.code || ResultCode.FAILED.code,
-      IerrorCode?.msg || ResultCode.FAILED.msg
+      msg || IerrorCode?.msg || ResultCode.FAILED.msg,
+      data
     );
   }
 

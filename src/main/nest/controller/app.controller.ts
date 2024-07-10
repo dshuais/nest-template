@@ -51,5 +51,6 @@ export class AppController {
   test(): CommonResult {
     // return CommonResult.success();
     return CommonResult.failed(ResultCode.FORBIDDEN);
+    // return CommonResult.validateFailed();
   }
 }
