@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 import UserDO from '../dataobject/userDO';
+import { CommonResult } from '../../common/types';
 
 @Injectable()
 export class UserService {
