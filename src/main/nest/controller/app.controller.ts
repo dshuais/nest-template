@@ -12,7 +12,7 @@ import {
   HttpStatus,
   Query
 } from '@nestjs/common';
-import { AppService } from '../service/app.service';
+import { AppService } from '../domain/service/app.service';
 
 @Controller()
 export class AppController {
