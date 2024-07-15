@@ -5,13 +5,7 @@
  * @LastEditTime: 2024-07-06 13:30:39
  * @Description: Controller
  */
-import {
-  Controller,
-  Get,
-  HttpException,
-  HttpStatus,
-  Query
-} from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { AppService } from '../domain/service/app.service';
 import CommonResult from '../common/api/CommonResult';
 import ResultCode from '../common/api/ResultCode';
@@ -26,25 +20,11 @@ export class AppController {
   }
 
   @Get('api')
-  getApi(@Query() query: { err: string }): object {
+  getApi(@Query() query: { err: string }): CommonResult {
     console.log(query);
     if (query.err === '1') {
-      // return new HttpException(
-      //   {
-      //     code: HttpStatus.INTERNAL_SERVER_ERROR,
-      //     msg: 'This is a custom message'
-      //   },
-      //   HttpStatus.INTERNAL_SERVER_ERROR,
-      //   {
-      //     cause: 'This is a custom message'
-      //   }
-      // );
-      return new HttpException(
-        'This is a custom message',
-        HttpStatus.INTERNAL_SERVER_ERROR
-      );
-      // return new BadRequestException('This is a custom message'
-    } else return this.appService.getApi();
+      return CommonResult.failed(ResultCode.CUSTOM_FAILED);
+    } else return CommonResult.success(this.appService.getApi());
   }
 
   @Get('test')

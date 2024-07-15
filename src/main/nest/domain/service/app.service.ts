@@ -16,13 +16,9 @@ export class AppService {
 
   getApi() {
     return {
-      code: 200,
-      data: {
-        id: 1,
-        name: 'dushuai',
-        age: 18
-      },
-      msg: '请求成功'
+      id: 1,
+      name: 'dushuai',
+      age: 18
     };
   }
 }
