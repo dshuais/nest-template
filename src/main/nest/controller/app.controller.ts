@@ -5,7 +5,7 @@
  * @LastEditTime: 2024-07-06 13:30:39
  * @Description: Controller
  */
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Ip, Query } from '@nestjs/common';
 import { AppService } from '../domain/service/app.service';
 import CommonResult from '../common/api/CommonResult';
 import ResultCode from '../common/api/ResultCode';
@@ -15,7 +15,9 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
+  getHello(@Ip() ip: string): string {
+    console.log('ip:>> ', ip);
+
     return this.appService.getHello();
   }
 
