@@ -12,13 +12,14 @@ import {
   HttpStatus,
   Query
 } from '@nestjs/common';
-import { AppService } from '../domain/service/app.service';
+// import { AppService } from '../domain/service/app.service';
+import { AppServiceImpl } from '../domain/service/impl/appServiceImpl';
 import CommonResult from '../common/api/CommonResult';
 import ResultCode from '../common/api/ResultCode';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppServiceImpl) {}
 
   @Get()
   getHello(): string {

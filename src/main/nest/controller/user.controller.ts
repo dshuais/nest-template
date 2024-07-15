@@ -6,13 +6,13 @@ import {
   Query
 } from '@nestjs/common';
 
-import { UserService } from '../domain/service/user.service';
+import { UserServiceImpl } from '../domain/service/impl/userServiceImpl';
 import UserDO from '../domain/dataobject/userDO';
 import { CommonResult } from '../common/types';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserServiceImpl) {}
 
   @Get()
   getUsers(@Query() query: { err: string }): CommonResult<UserDO> {
