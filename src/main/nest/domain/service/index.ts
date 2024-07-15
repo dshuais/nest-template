@@ -1,9 +1,9 @@
-import { AppServiceImpl } from './impl/appServiceImpl';
-import { UserServiceImpl } from './impl/userServiceImpl';
+import { AppService } from './app.service';
+import { UserService } from './user.service';
 
 export const services = {
-  AppServiceImpl,
-  UserServiceImpl
+  AppService,
+  UserService
 };
 
 export default Object.values(services);
