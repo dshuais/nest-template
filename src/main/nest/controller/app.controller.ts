@@ -2,10 +2,10 @@
  * @Author: dushuai
  * @Date: 2024-07-06 12:39:56
  * @LastEditors: dushuai
- * @LastEditTime: 2024-07-31 21:20:44
+ * @LastEditTime: 2024-07-31 22:02:06
  * @Description: Controller
  */
-import { Controller, Get, Ip, Query } from '@nestjs/common';
+import { Body, Controller, Get, Ip, Post, Query } from '@nestjs/common';
 import { AppService } from '../domain/service/app.service';
 import CommonResult from '../common/api/CommonResult';
 import ResultCode from '../common/api/ResultCode';
@@ -30,10 +30,28 @@ export class AppController {
   }
 
   @Get('test')
-  async test(): Promise<CommonResult> {
+  async test(@Query() query: object): Promise<CommonResult> {
+    console.log('query:>> ', query);
     const data = await this.appService.getTest();
     return CommonResult.success(data);
     // return CommonResult.failed(ResultCode.FORBIDDEN);
     // return CommonResult.validateFailed();
+  }
+
+  @Post('test')
+  GetPostTest(@Body() body: object): CommonResult {
+    console.log('body:>> ', body);
+    return CommonResult.success('post success');
+  }
+
+  @Post('testJSON')
+  GetPostTestForm(@Body() body: object): CommonResult {
+    console.log('bodyJSON:>> ', body);
+    return CommonResult.success('post succes');
+  }
+
+  @Post('testError')
+  testError(): CommonResult {
+    return CommonResult.failed(ResultCode.UNAUTHORIZED);
   }
 }
