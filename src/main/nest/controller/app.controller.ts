@@ -2,7 +2,7 @@
  * @Author: dushuai
  * @Date: 2024-07-06 12:39:56
  * @LastEditors: dushuai
- * @LastEditTime: 2024-07-06 13:30:39
+ * @LastEditTime: 2024-07-31 21:20:44
  * @Description: Controller
  */
 import { Controller, Get, Ip, Query } from '@nestjs/common';
@@ -12,7 +12,7 @@ import ResultCode from '../common/api/ResultCode';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) { }
 
   @Get()
   getHello(@Ip() ip: string): string {
@@ -30,9 +30,10 @@ export class AppController {
   }
 
   @Get('test')
-  test(): CommonResult {
-    // return CommonResult.success();
-    return CommonResult.failed(ResultCode.FORBIDDEN);
+  async test(): Promise<CommonResult> {
+    const data = await this.appService.getTest();
+    return CommonResult.success(data);
+    // return CommonResult.failed(ResultCode.FORBIDDEN);
     // return CommonResult.validateFailed();
   }
 }
