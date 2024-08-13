@@ -33,6 +33,6 @@ export class AppService {
       setTimeout(() => {
         resolve(data);
       }, 2000);
-    })
+    });
   }
 }

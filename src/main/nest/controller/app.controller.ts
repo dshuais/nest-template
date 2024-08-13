@@ -12,7 +12,7 @@ import ResultCode from '../common/api/ResultCode';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) { }
+  constructor(private readonly appService: AppService) {}
 
   @Get()
   getHello(@Ip() ip: string): string {
@@ -41,7 +41,11 @@ export class AppController {
   @Post('test')
   GetPostTest(@Body() body: object): CommonResult {
     console.log('body:>> ', body);
-    return CommonResult.success('post success');
+    return CommonResult.success({
+      name: 'dushuai',
+      age: 18,
+      sex: '男'
+    });
   }
 
   @Post('testJSON')
