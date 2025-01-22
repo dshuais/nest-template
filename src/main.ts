@@ -7,8 +7,8 @@
  */
 import { NestFactory } from '@nestjs/core';
 
+import { PORT } from 'config';
 import { AppModule } from './app.module';
-import { PORT } from './main/nest/common/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

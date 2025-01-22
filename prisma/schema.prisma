@@ -12,3 +12,12 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model t_user {
+  id          Int    @id @default(autoincrement())
+  user_name   String
+  password    String
+  status      Int    @default(1)
+  create_time String
+  update_time String
+}

@@ -1,15 +1,11 @@
 import { HttpStatus } from '@nestjs/common';
 
-import IErrorCode from './IErrorCode';
-
-type Result = {
-  [key: string]: IErrorCode;
-};
+import { IErrorCode } from 'src/common/CommonResult';
 
 /**
  * 返回错误码数据枚举
  */
-const ResultCode: Result = {
+const ResultCode = {
   SUCCESS: new IErrorCode(HttpStatus.OK, '操作成功'), // 200
   FAILED: new IErrorCode(HttpStatus.INTERNAL_SERVER_ERROR, '操作失败'), // 500
   VALIDATE_FAILED: new IErrorCode(HttpStatus.BAD_REQUEST, '参数校验失败'), // 400

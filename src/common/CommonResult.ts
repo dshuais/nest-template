@@ -1,5 +1,17 @@
-import IErrorCode from './IErrorCode';
-import ResultCode from './ResultCode';
+import ResultCode from '../utils/ResultCode';
+
+/**
+ * 错误码接口
+ */
+export class IErrorCode {
+  constructor(
+    public code: number,
+    public msg: string
+  ) {
+    this.code = code;
+    this.msg = msg;
+  }
+}
 
 /**
  * 通用处理返回结果
